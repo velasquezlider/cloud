@@ -1,0 +1,3 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{Carátula}{i}{}
+\contentsline {section}{Índice General}{\es@scroman {i}}{Doc-Start}%

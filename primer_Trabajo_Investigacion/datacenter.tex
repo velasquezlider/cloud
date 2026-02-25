@@ -1,0 +1,191 @@
+\PassOptionsToPackage{table}{xcolor}
+\documentclass[12pt, letterpaper]{article}
+
+% Paquetes necesarios
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{newtxtext}
+\usepackage[most]{tcolorbox}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{array}
+
+% Configuración de página
+\geometry{
+  left=1.5cm,
+  right=1.5cm,
+  top=1.5cm,
+  bottom=1.5cm,
+  headheight=25pt
+}
+
+% Colores institucionales
+\definecolor{umsablue}{RGB}{0, 51, 102}
+\definecolor{umsagold}{RGB}{204, 153, 0}
+\definecolor{umsared}{RGB}{180, 0, 0}
+\definecolor{umsagreen}{RGB}{0, 100, 0}
+\definecolor{sectioncolor}{RGB}{30, 50, 100}
+\definecolor{subsectioncolor}{RGB}{60, 80, 120}
+\definecolor{subsubsectioncolor}{RGB}{90, 110, 140}
+\definecolor{coverlight}{RGB}{234, 242, 251}
+\definecolor{coverdark}{RGB}{7, 26, 54}
+
+% Formato de títulos
+\titleformat{\section}[display]
+{\color{sectioncolor}\normalfont\Huge\bfseries\centering}
+{\thesection}{0.5em}{}
+\titleformat{\subsection}[block]
+{\color{subsectioncolor}\normalfont\Large\bfseries}
+{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}[block]
+{\color{subsubsectioncolor}\normalfont\large\bfseries}
+{\thesubsubsection}{0.5em}{}
+
+% Espaciado
+\setstretch{1.15}
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{0pt}
+\setlist{nosep, leftmargin=1.5em}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  pdftitle={Primer Trabajo de Investigacion - Data Centers},
+  pdfauthor={Estudiantes de Ingenieria de Sistemas}
+}
+
+% Pie y cabecera
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textcolor{sectioncolor!70}{\textbf{Computación en la Nube}}}
+\rhead{\textcolor{sectioncolor}{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{umsablue}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{umsablue}\leaders\hrule height \footrulewidth\hfill}}
+
+% Cajas de apoyo
+\newtcolorbox{definicion}[1][]{
+    colback=umsablue!8,
+    colframe=umsablue,
+    fonttitle=\bfseries\color{white},
+    title=Definición,
+    enhanced,
+    arc=3pt,
+    boxrule=1pt,
+    coltitle=white,
+    #1
+}
+
+\newtcolorbox{ventajas}[1][]{
+    colback=umsagreen!8,
+    colframe=umsagreen,
+    fonttitle=\bfseries,
+    title=Ventajas,
+    enhanced,
+    arc=3pt,
+    boxrule=1pt,
+    #1
+}
+
+\newtcolorbox{desventajas}[1][]{
+    colback=umsared!8,
+    colframe=umsared,
+    fonttitle=\bfseries,
+    title=Desventajas,
+    enhanced,
+    arc=3pt,
+    boxrule=1pt,
+    #1
+}
+
+% Portada estilo UMSA (adaptada al trabajo)
+\newcommand{\maketitleUMSA}{
+    \begin{titlepage}
+        \centering
+        \sffamily
+        {\color{umsablue}\rule{\linewidth}{2.2mm}} \par
+        {\color{umsagold}\rule{\linewidth}{0.8mm}} \par
+        \vspace*{0.15cm}
+
+        {\LARGE\bfseries\textcolor{umsablue}{Universidad Mayor de San Andrés} \par}
+        \vspace{0.15cm}
+        {\large\textcolor{umsablue}{Facultad de Ciencias Puras y Naturales} \par}
+        \vspace{0.08cm}
+        {\normalsize\bfseries\textcolor{umsablue}{Carrera de Informática} \par}
+        {\small\textcolor{sectioncolor}{La Paz -- Bolivia} \par}
+
+        \vspace{0.25cm}
+        \IfFileExists{logo_umsa.png}{
+            \includegraphics[width=0.16\textwidth]{logo_umsa.png} \par
+        }{
+            \IfFileExists{logo_umsa.jpeg}{
+                \includegraphics[width=0.16\textwidth]{logo_umsa.jpeg} \par
+            }{
+                \fcolorbox{umsablue}{coverlight}{\parbox{0.16\textwidth}{\centering Logo UMSA}} \par
+            }
+        }
+
+        \vspace{0.25cm}
+        {\large\bfseries\textcolor{umsablue}{PRIMER TRABAJO DE INVESTIGACIÓN No. 1}\par}
+        \vspace{0.04cm}
+        {\fontsize{26}{30}\selectfont\bfseries\textcolor{umsablue}{DATA CENTER}\par}
+        \vspace{0.04cm}
+        {\normalsize\textcolor{umsablue}{Materia: Computación en la Nube}\par}
+
+        \vspace{0.22cm}
+        {\normalsize\bfseries\textcolor{umsablue}{INTEGRANTES}\par}
+        {\color{umsagold}\rule{0.28\textwidth}{0.5pt}\par}
+        \vspace{0.05cm}
+        \begin{minipage}{0.72\textwidth}
+            \centering
+            {\small\textcolor{sectioncolor}{Ana María Rodríguez Gómez}\par}
+            \vspace{0.03cm}
+            {\small\textcolor{sectioncolor}{Carlos Eduardo Pérez Sánchez}\par}
+            \vspace{0.03cm}
+            {\small\textcolor{sectioncolor}{Laura Isabel González Ruiz}\par}
+            \vspace{0.03cm}
+            {\small\textcolor{sectioncolor}{Miguel Ángel Torres Vega}\par}
+            \vspace{0.03cm}
+            {\small\textcolor{sectioncolor}{Sofía Elena Castillo Moreno}\par}
+        \end{minipage}
+
+        \vspace{0.16cm}
+        {\small\textbf{\textcolor{umsablue}{Grupo:}} 1LS-131\par}
+        {\small\textbf{\textcolor{umsablue}{Profesor:}} Mgtr. Ricardo Mendoza\par}
+
+        \vspace{0.12cm}
+        {\small\textbf{\textcolor{umsablue}{Fecha:}} 25/02/2026\par}
+
+        \vfill
+        {\color{umsagold}\rule{\linewidth}{0.8mm}} \par
+        {\color{umsablue}\rule{\linewidth}{2.2mm}} \par
+    \end{titlepage}
+}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+\pagenumbering{roman}
+
+\maketitleUMSA
+\hypersetup{pageanchor=true}
+\addtocontents{toc}{\protect\contentsline{section}{Carátula}{i}{}}
+
+\clearpage
+\section*{Índice General}
+\addcontentsline{toc}{section}{Índice General}
+\tableofcontents
+
+\end{document}
